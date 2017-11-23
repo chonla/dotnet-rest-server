@@ -42,7 +42,7 @@ namespace restapi.Controllers
             int new_id = this.svc.NextId();
             value.ID = new_id;
             this.svc.Add(value);
-            return Created("api/customers/" + new_id, value);
+            return Created(String.Format("api/customers/{0}", new_id.ToString()), value);
         }
 
         // PUT api/customers/5

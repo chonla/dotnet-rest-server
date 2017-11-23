@@ -45,16 +45,16 @@ namespace restapi.Services {
             if (index >= 0) {
                 this.data[index] = cust;
 
-                this.flush ();
+                this.Flush ();
             }
         }
 
         public void Add (Customer cust) {
             this.data.Add(cust);
-            this.flush();
+            this.Flush();
         }
 
-        private void flush () {
+        private void Flush () {
             var new_data = JsonConvert.SerializeObject (this.data.ToArray(), Formatting.Indented);
             File.WriteAllText ("data.json", new_data);
         }
@@ -64,7 +64,7 @@ namespace restapi.Services {
             if (index >= 0) {
                 this.data.RemoveAt(index);
 
-                this.flush ();
+                this.Flush ();
             }
         }
 
