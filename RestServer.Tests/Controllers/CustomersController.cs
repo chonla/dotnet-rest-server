@@ -1,5 +1,6 @@
 using System;
 using Xunit;
+using RestServer;
 
 namespace RestServer.Tests
 {
@@ -8,7 +9,7 @@ namespace RestServer.Tests
         [Fact]
         public void Test1()
         {
-
+            Assert.Equal(0, 1);
         }
     }
 }

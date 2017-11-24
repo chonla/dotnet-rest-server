@@ -4,10 +4,10 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.ModelBinding;
-using restapi.Services;
-using restapi.Models;
+using RestServer.Services;
+using RestServer.Models;
 
-namespace restapi.Controllers
+namespace RestServer.Controllers
 {
     [Route("api/[controller]")]
     public class CustomersController : Controller

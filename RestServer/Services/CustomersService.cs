@@ -1,9 +1,9 @@
 using System.IO;
 using Newtonsoft.Json;
-using restapi.Models;
+using RestServer.Models;
 using System.Collections.Generic;
 
-namespace restapi.Services {
+namespace RestServer.Services {
     public class CustomersService {
         private List<Customer> data;
 
