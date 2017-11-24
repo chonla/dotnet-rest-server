@@ -12,10 +12,10 @@ namespace RestServer.Controllers
     [Route("api/[controller]")]
     public class CustomersController : Controller
     {
-        private CustomersService svc;
+        private ICustomersService svc;
 
-        public CustomersController() {
-            this.svc = new CustomersService();
+        public CustomersController(ICustomersService cs) {
+            this.svc = cs;
         }
         // customer
         [HttpGet]

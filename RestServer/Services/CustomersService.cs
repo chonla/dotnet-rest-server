@@ -1,22 +1,22 @@
+using System.Collections.Generic;
 using System.IO;
 using Newtonsoft.Json;
 using RestServer.Models;
-using System.Collections.Generic;
 
 namespace RestServer.Services {
-    public class CustomersService {
+    public class CustomersService : ICustomersService {
         private List<Customer> data;
 
         public CustomersService () {
             Customer[] d = JsonConvert.DeserializeObject<Customer[]> (File.ReadAllText ("data.json"));
-            this.data = new List<Customer>();
+            this.data = new List<Customer> ();
             for (int i = 0; i < d.Length; i++) {
-                this.data.Add(d[i]);
+                this.data.Add (d[i]);
             }
         }
 
         public Customer[] All () {
-            return this.data.ToArray();
+            return this.data.ToArray ();
         }
 
         public Customer Get (int id) {
@@ -50,19 +50,19 @@ namespace RestServer.Services {
         }
 
         public void Add (Customer cust) {
-            this.data.Add(cust);
-            this.Flush();
+            this.data.Add (cust);
+            this.Flush ();
         }
 
         private void Flush () {
-            var new_data = JsonConvert.SerializeObject (this.data.ToArray(), Formatting.Indented);
+            var new_data = JsonConvert.SerializeObject (this.data.ToArray (), Formatting.Indented);
             File.WriteAllText ("data.json", new_data);
         }
 
-        public void Remove(int id) {
+        public void Remove (int id) {
             int index = this.IndexOf (id);
             if (index >= 0) {
-                this.data.RemoveAt(index);
+                this.data.RemoveAt (index);
 
                 this.Flush ();
             }
